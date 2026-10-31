@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: skybridge-demo
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: STATE_BACKEND
+        value: terse
+      - key: INTEGRATION_MODE
+        value: live
+      - key: TERSE_ACTOR_URL
+        sync: false
+      - key: TERSE_API_KEY
+        sync: false
+      - key: RELAY_WORKSPACE_KEY
+        sync: false
+      - key: SUPPLY_AGENT_TOKEN
+        sync: false
+      - key: FLEET_AGENT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        sync: false
+      - key: DEMO_REQUESTER_TOKEN
+        generateValue: true
+      - key: DEMO_DISPATCHER_TOKEN
+        generateValue: true

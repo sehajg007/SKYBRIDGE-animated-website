@@ -1,0 +1,51 @@
+{
+  "name": "skybridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun run server/index.ts",
+    "dev": "bun --watch server/index.ts",
+    "build": "npm --prefix web run build",
+    "check": "tsc --noEmit",
+    "test": "bun test",
+    "setup": "bun run server/scripts/setup.ts",
+    "launch": "bun run server/scripts/launch.ts",
+    "smoke:relay": "bun run server/scripts/smoke-relay.ts",
+    "smoke:terse": "bun run server/scripts/smoke-terse.ts",
+    "smoke:model": "bun run server/scripts/smoke-model.ts",
+    "setup:relay": "bun run server/scripts/setup-relay.ts",
+    "demo": "bun run server/scripts/demo.ts",
+    "generate:terse": "bun run node_modules/terse-cli/dist/index.js actor generate --out-dir server/generated --non-interactive",
+    "prepare:actor": "bun run server/scripts/prepare-actor.ts",
+    "actor:dev": "npm run prepare:actor && bun run server/scripts/actor-cli.ts dev",
+    "actor:deploy": "npm run prepare:actor && bun run server/scripts/actor-cli.ts deploy",
+    "connect:terse": "bun run server/scripts/connect-terse.ts"
+  },
+  "dependencies": {
+    "bun": "1.4.4",
+    "@agent-relay/sdk": "15.0.1",
+    "terse-sdk": "0.14.9",
+    "terse-cli": "0.14.9",
+    "openai": "7.47.0",
+    "zod": "4.6.7",
+    "express": "5.3.0",
+    "dotenv": "18.0.9",
+    "tsx": "4.23.15",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "^24.0.0",
+    "@types/express": "^5.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "latest"
+  },
+  "overrides": {
+    "glob": "14.0.3",
+    "minimatch": "11.0.3"
+  }
+}
